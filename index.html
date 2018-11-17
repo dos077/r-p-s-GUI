@@ -1,8 +1,21 @@
 <html>
 	  <head>
-	  		<script src="r-p-s.js"></script>
+			<script src="r-p-s.js"></script>
+			<link rel="stylesheet" href="css/r-p-s.css">
 	  </head>
 	  <body>
-          <a href="#" onClick="game()">Let's play Rock, Paper, and Scissors</a>
+          <div content>
+			  <div class="title">Let's Play Rock, Paper, Scissors</div>
+			  <div class="score">
+				  <div class="left">Your Score: <span id="pScore">0</span></div>
+				  <div class="right">Computer's Score: <span id="cScore">0</span></div>
+			  </div>
+			  <div class="message"></div>
+			  <div class="buttons">
+				  <img id="rock" src="img/rock.png" >
+				  <img id="papger" src="img/paper.png" >
+				  <img id="scissors" src="img/scissors.png">
+			  </div>
+		  </div>
 	  </body>
 </html>

@@ -1,3 +1,26 @@
+
+function playGUI(playerSelection) {
+    var playerBoard = document.querySelector('#pScore');
+    var computerBoard = document.querySelector('#cScore')
+    var pScore = Number(playerBoard.innerHTML);
+    var cScore = Number(computerBoard.innerHTML);
+    var messageBoard = document.querySelector('.message');
+    if (pScore>=5) {
+        messageBoard.innerHTML = 'You already won the game.';
+    } else if (cScore>=5) {
+        messageBoard.innerHTML = 'Computer already won the game.';
+    } else {
+        var round = playRound(playerSelection,computerPlay());
+        if (round[1]==0) {cScore++;}
+        else if (round[1]==1) {pScore++;}
+        messageBoard.innerHTML = round[0];
+        if (pScore>=5) {messageBoard.innerHTML = 'You won the game!';}
+        if (cScore>=5) {messageBoard.innerHTML = 'Computer won the game.';}
+    }
+    playerBoard.innerHTML = pScore;
+    computerBoard.innerHTML = cScore;
+}
+
 function computerPlay() {
     var results = ['Rock', 'Paper', 'Scissors'];
     var result = results[Math.floor(Math.random() * results.length)];
@@ -15,10 +38,10 @@ function playRound(playerSelection, computerSelection) {
             gameWin = 2;
         }
         else if(cSelect == 'paper'){
-            message = message + ' You lost.';
+            message = message + ' You lost the round.';
         }
         else if(cSelect == 'scissors') {
-            message = message + ' You won!';
+            message = message + ' You won the round.';
             gameWin = 1;
         }
     } else if(pSelect == 'paper'){
@@ -27,10 +50,10 @@ function playRound(playerSelection, computerSelection) {
             gameWin = 2;
         }
         else if(cSelect == 'scissors'){
-            message = message + ' You lost.';
+            message = message + ' You lost the round.';
         }
         else if(cSelect == 'rock') {
-            message = message + ' You won!';
+            message = message + ' You won the round.';
             gameWin = 1;
         }
     } else if(pSelect == 'scissors'){
@@ -39,10 +62,10 @@ function playRound(playerSelection, computerSelection) {
             gameWin = 2;
         }
         else if(cSelect == 'rock'){
-            message = message + ' You lost.';
+            message = message + ' You lost the round.';
         }
         else if(cSelect == 'paper') {
-            message = message + ' You won!';
+            message = message + ' You won the round.';
             gameWin = 1;
         }
     } else {
